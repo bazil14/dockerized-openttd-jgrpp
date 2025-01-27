@@ -46,7 +46,7 @@ Run Openttd and expose the default ports.
 
 Run Openttd with random port assignment.
 
-    docker run -d -P ghcr.io/ghostlydilemma/openttd-jgrpp:latest
+    docker run -d -P ghcr.io/bazil14/dockerized-openttd-jgrpp:latest
 
 Its set up to not load any games by default (new game) and it can be run without mounting a .openttd folder.  
 However, if you want to save/load your games, mounting a .openttd folder is required.

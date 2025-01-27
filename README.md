@@ -42,7 +42,7 @@ rcon port. For example:
 
 Run Openttd and expose the default ports.
 
-    docker run -d -p 3979:3979/tcp -p 3979:3979/udp ghcr.io/ghostlydilemma/openttd-jgrpp:latest
+    docker run -d -p 3979:3979/tcp -p 3979:3979/udp ghcr.io/bazil14/dockerized-openttd-jgrpp:latest
 
 Run Openttd with random port assignment.
 
@@ -51,20 +51,20 @@ Run Openttd with random port assignment.
 Its set up to not load any games by default (new game) and it can be run without mounting a .openttd folder.  
 However, if you want to save/load your games, mounting a .openttd folder is required.
 
-    docker run -v /path/to/your/.openttd:/home/openttd/.local/share/openttd/ -p 3979:3979/tcp -p 3979:3979/udp ghcr.io/ghostlydilemma/openttd-jgrpp:latest
+    docker run -v /path/to/your/.openttd:/home/openttd/.local/share/openttd/ -p 3979:3979/tcp -p 3979:3979/udp ghcr.io/bazil14/dockerized-openttd-jgrpp:latest
 
 Set UID and GID of user in container to be the same as your user outside with seting env PUID and PGID.
 For example
 
-    docker run -e PUID=1000 -e PGID=1000 -v /path/to/your/.openttd:/home/openttd/.local/share/openttd/ -p 3979:3979/tcp -p 3979:3979/udp ghcr.io/ghostlydilemma/openttd-jgrpp:latest
+    docker run -e PUID=1000 -e PGID=1000 -v /path/to/your/.openttd:/home/openttd/.local/share/openttd/ -p 3979:3979/tcp -p 3979:3979/udp ghcr.io/bazil14/dockerized-openttd-jgrpp:latest
 
 For other save games use (/home/openttd/.openttd/save/ is appended to savename when passed to openttd command)
 
-    docker run -e "loadgame=true" -e "savename=game.sav" -v /path/to/your/.openttd:/home/openttd/.local/share/openttd/ -p 3979:3979/tcp -p 3979:3979/udp ghcr.io/ghostlydilemma/openttd-jgrpp:latest
+    docker run -e "loadgame=true" -e "savename=game.sav" -v /path/to/your/.openttd:/home/openttd/.local/share/openttd/ -p 3979:3979/tcp -p 3979:3979/udp ghcr.io/bazil14/dockerized-openttd-jgrpp:latest
 
 For example to run server and load my savename game.sav:
 
-    docker run -d -p 3979:3979/tcp -p 3979:3979/udp -v /home/<your_username>/.openttd:/home/openttd/.local/share/openttd/ -e PUID=<your_userid> -e PGID=<your_groupid> -e "loadgame=true" -e "savename=game.sav" ghcr.io/ghostlydilemma/openttd-jgrpp:latest
+    docker run -d -p 3979:3979/tcp -p 3979:3979/udp -v /home/<your_username>/.openttd:/home/openttd/.local/share/openttd/ -e PUID=<your_userid> -e PGID=<your_groupid> -e "loadgame=true" -e "savename=game.sav" ghcr.io/bazil14/dockerized-openttd-jgrpp:latest
 
 ## Docker Compose
 
@@ -74,7 +74,7 @@ The preferred way is to use this image with Docker Compose. Following is an exam
 version: "3"
 services:
   openttd:
-    image: ghcr.io/ghostlydilemma/openttd-jgrpp:13.1
+    image: ghcr.io/bazil14/dockerized-openttd-jgrpp:latest
     ports:
       - "3979:3979/tcp"
       - "3979:3979/udp"
